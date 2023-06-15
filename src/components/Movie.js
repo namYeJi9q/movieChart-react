@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 export default function Movie({ id, year, title, summary, poster, genres }) {
     if (poster == "") {
         return;
@@ -8,7 +9,13 @@ export default function Movie({ id, year, title, summary, poster, genres }) {
     return (
         <MovieWrap>
             <img src={poster} alt={title} title={title} />
-            <h3>{title}</h3>
+            <h2>
+                <Link to={`/movie/${id}`}>
+                    {title && title.length > 50
+                        ? `${title.slice(0, 50)}...`
+                        : title}
+                </Link>
+            </h2>
             <h5>{year}</h5>
             <p>{summary}</p>
             <ul>

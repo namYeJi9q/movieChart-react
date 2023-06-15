@@ -27,20 +27,6 @@ function MovieList() {
         getMovies();
     }, [reloading]);
 
-    // const getMovies = async () => {
-    //     const json = await (
-    //         await fetch(
-    //             `https://yts-proxy.nomadcoders1.now.sh/list_movies.json?minimum_rating=9&sort_by=year`
-    //         )
-    //     ).json();
-    //     setMovies(json.data.movies);
-    //     setLoading(false);
-    // };
-
-    // useEffect(() => {
-    //     getMovies();
-    // }, []);
-
     return (
         <div>
             {loading ? (

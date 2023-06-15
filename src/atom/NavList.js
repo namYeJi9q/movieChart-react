@@ -1,15 +1,15 @@
 const navList = [
     {
         title: "High Rating",
-        path: "minimum_rating=7",
+        path: "minimum_rating=9",
     },
     {
         title: "Romance",
         path: "genre=romance",
     },
     {
-        title: "Thriller",
-        path: "genre=thriller",
+        title: "Music",
+        path: "genre=music",
     },
     {
         title: "Animation",

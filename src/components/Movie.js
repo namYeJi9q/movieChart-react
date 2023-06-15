@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 export default function Movie({ id, year, title, summary, poster, genres }) {
+    if (poster == "") {
+        return;
+    }
     return (
-        <div>
+        <MovieWrap>
             <img src={poster} alt={title} title={title} />
             <h3>{title}</h3>
             <h5>{year}</h5>
@@ -12,7 +16,7 @@ export default function Movie({ id, year, title, summary, poster, genres }) {
                     <li key={index}>{gen}</li>
                 ))}
             </ul>
-        </div>
+        </MovieWrap>
     );
 }
 
@@ -24,3 +28,10 @@ Movie.propTypes = {
     poster: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
+
+const MovieWrap = styled.div`
+    min-width: "350px";
+    width: 40%;
+    height: "300px";
+    border: 1px solid red;
+`;

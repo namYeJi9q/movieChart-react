@@ -1,46 +1,76 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import Movie from "../components/Movie";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import navList from "../atom/NavList";
+import Slide from "../components/Slide";
 
-function Home() {
+export default function Home() {
     const [loading, setLoading] = useState(true);
-    const [movies, setMovies] = useState([]);
-
-    const getMovies = async () => {
-        const json = await (
-            await fetch(
-                `https://yts-proxy.nomadcoders1.now.sh/list_movies.json?minimum_rating=9&sort_by=year`
-            )
-        ).json();
-        setMovies(json.data.movies);
-        setLoading(false);
-    };
+    const [movieTypes, setMovieTypes] = useState([]);
 
     useEffect(() => {
-        getMovies();
+        const request = navList.map(({ path }) => {
+            return axios.get("https://yts.mx/api/v2/list_movies.json?" + path, {
+                params: {
+                    limit: 10,
+                    sort_by: "year",
+                },
+            });
+        });
+
+        axios.all(request).then(
+            axios.spread(async (...response) => {
+                const data = await response.map((res) => {
+                    if (res.status === 200) {
+                        return res.data.data.movies;
+                    }
+                });
+
+                setMovieTypes(data);
+                setLoading(false);
+            })
+        );
     }, []);
     return (
-        <div>
-            {loading ? (
-                <h1>Loading...</h1>
-            ) : (
-                <div>
-                    {movies.map((movie) => {
-                        return (
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                year={movie.year}
-                                title={movie.title}
-                                summary={movie.summary}
-                                poster={movie.medium_cover_image}
-                                genres={movie.genres}
-                            />
-                        );
-                    })}
-                </div>
-            )}
-        </div>
+        <Wrap>
+            <InnerWrap>
+                {navList.map(({ title, path }, index) => (
+                    <MovieTypeList>
+                        <h2 key={index}>
+                            <Link to={`/page/${path}`}>{title}</Link>
+                        </h2>
+                        {loading ? (
+                            <h3>Loading...</h3>
+                        ) : (
+                            <ul>
+                                {movieTypes && movieTypes.length === 0 ? (
+                                    <h3>Loading...</h3>
+                                ) : (
+                                    <Slide movieTypes={movieTypes[index]} />
+                                )}
+                            </ul>
+                        )}
+                    </MovieTypeList>
+                ))}
+            </InnerWrap>
+        </Wrap>
     );
 }
 
-export default Home;
+const Wrap = styled.main`
+    width: 100%;
+    height: 100%;
+`;
+
+const InnerWrap = styled.section`
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const MovieTypeList = styled.article`
+    margin-bottom: 100px;
+`;

@@ -3,13 +3,12 @@ import { useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import Movie from "../components/Movie";
 import { listPageReLoading } from "../atom/Atoms";
+import styled from "styled-components";
 
-function MovieList() {
+export default function MovieList() {
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
-
     const { num, detail } = useParams();
-
     const [reloading, setReloading] = useRecoilState(listPageReLoading);
     const getMovies = async () => {
         const json = await (
@@ -27,29 +26,55 @@ function MovieList() {
         getMovies();
     }, [reloading]);
 
+    console.log(movies);
+
     return (
-        <div>
-            {loading ? (
-                <h1>Loading...</h1>
-            ) : (
-                <div>
-                    {movies.map((movie) => {
-                        return (
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                year={movie.year}
-                                title={movie.title}
-                                summary={movie.summary}
-                                poster={movie.medium_cover_image}
-                                genres={movie.genres}
-                            />
-                        );
-                    })}
-                </div>
-            )}
-        </div>
+        <Wrap>
+            <InnerWarp>
+                {loading ? (
+                    <Loading>Loading...</Loading>
+                ) : (
+                    <Contents>
+                        {movies.map((movie) => {
+                            return (
+                                <Movie
+                                    key={movie.id}
+                                    id={movie.id}
+                                    year={movie.year}
+                                    title={movie.title}
+                                    summary={movie.summary}
+                                    poster={movie.medium_cover_image}
+                                    genres={movie.genres}
+                                />
+                            );
+                        })}
+                    </Contents>
+                )}
+            </InnerWarp>
+        </Wrap>
     );
 }
 
-export default MovieList;
+const Wrap = styled.section`
+    width: 100%;
+    padding: 120px 0;
+    background-color: #000;
+`;
+
+const InnerWarp = styled.div`
+    width: 1300px;
+    margin: 0 auto;
+`;
+
+const Contents = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 140px;
+`;
+
+const Loading = styled.h3`
+    text-align: center;
+    margin-top: 240px;
+    color: #fff;
+`;

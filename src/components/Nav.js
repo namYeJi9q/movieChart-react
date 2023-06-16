@@ -49,7 +49,7 @@ export default function Nav() {
                 >
                     <FontAwesomeIcon
                         icon={faGithub}
-                        style={{ color: "#000" }}
+                        style={{ color: "#fff" }}
                     />
                 </a>
             </div>
@@ -60,10 +60,14 @@ export default function Nav() {
 const Wrap = styled.div`
     width: 100%;
     height: 90px;
-    background-color: #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 11;
+    color: #fff;
 `;
 
 const Title = styled.h1`

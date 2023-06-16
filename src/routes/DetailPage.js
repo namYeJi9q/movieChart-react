@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
 import Detail from "../components/Detail";
 
 export default function DetailPage() {
@@ -15,25 +16,37 @@ export default function DetailPage() {
                 setLoading(false);
             });
     }, []);
-
-    console.log(movie);
-
     return (
-        <div>
+        <Wrap>
             {loading ? (
-                <h3>Loading...</h3>
+                <Loading>Loading...</Loading>
             ) : (
                 <Detail
                     background_image_original={movie.background_image_original}
-                    medium_cover_image={movie.medium_cover_image}
+                    large_poster={movie.large_cover_image}
                     url={movie.url}
-                    title_long={movie.title_long}
+                    title={movie.title}
+                    year={movie.year}
                     rating={movie.rating}
                     runtime={movie.runtime}
                     genres={movie.genres}
+                    summary={movie.description_full}
                     download_count={movie.download_count}
                 />
             )}
-        </div>
+        </Wrap>
     );
 }
+
+const Wrap = styled.main`
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border: 1px solid #000;
+`;
+
+const Loading = styled.h3`
+    text-align: center;
+    margin-top: 240px;
+    color: #fff;
+`;

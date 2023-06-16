@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Home from "./routes/Home";
 import MovieList from "./routes/MovieList";
 import DetailPage from "./routes/DetailPage";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/movie/:id" element={<DetailPage />} />
                     <Route path="/page/:detail/:num" element={<MovieList />} />
                 </Routes>
+                <Footer />
             </Router>
         </RecoilRoot>
     );

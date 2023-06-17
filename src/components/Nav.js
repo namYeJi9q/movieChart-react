@@ -49,7 +49,7 @@ export default function Nav() {
                 >
                     <FontAwesomeIcon
                         icon={faGithub}
-                        style={{ color: "#fff" }}
+                        style={{ color: "#f4a7bc" }}
                     />
                 </a>
             </div>
@@ -64,7 +64,7 @@ const Wrap = styled.div`
     top: 0;
     left: 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     z-index: 11;
     color: #fff;
@@ -72,12 +72,14 @@ const Wrap = styled.div`
 
 const Title = styled.h1`
     cursor: pointer;
+    color: #f4a7bc;
 `;
 
 const Menu = styled.ul`
     display: flex;
     li {
-        margin: 0 15px;
+        font-size: 16px;
+        margin: 0 20px;
         cursor: pointer;
     }
 `;

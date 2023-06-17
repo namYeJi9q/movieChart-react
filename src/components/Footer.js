@@ -14,6 +14,6 @@ const FooterWrap = styled.footer`
     text-align: center;
     line-height: 80px;
     background-color: #000;
-    color: #fff;
+    color: #aaa;
     font-size: 11px;
 `;

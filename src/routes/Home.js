@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import navList from "../atom/NavList";
 import Slide from "../components/Slide";
+import Footer from "../components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { Loading } from "../components/Loading.styled";
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
@@ -31,15 +35,21 @@ export default function Home() {
             })
         );
     }, []);
-    // console.log(movieTypes);
+
     return (
         <Wrap>
             <InnerWrap>
                 {navList.map(({ title, path }, index) => (
                     <MovieTypeList key={index}>
-                        <h2>
-                            <Link to={`/page/${path}/1`}>{title}</Link>
-                        </h2>
+                        <MovieTypesTitle>
+                            <Link to={`/page/${path}/1`}>
+                                {title}
+                                <FontAwesomeIcon
+                                    icon={faArrowUpRightFromSquare}
+                                    style={{ marginLeft: "5px" }}
+                                />
+                            </Link>
+                        </MovieTypesTitle>
                         {loading ? (
                             <Loading>Loading...</Loading>
                         ) : (
@@ -53,6 +63,7 @@ export default function Home() {
                         )}
                     </MovieTypeList>
                 ))}
+                <Footer />
             </InnerWrap>
         </Wrap>
     );
@@ -60,13 +71,12 @@ export default function Home() {
 
 const Wrap = styled.main`
     width: 100%;
-    background-color: #000;
 `;
 
 const InnerWrap = styled.section`
     width: 1300px;
     margin: 0 auto;
-    padding: 150px;
+    padding: 150px 0 0 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,19 +88,20 @@ const MovieTypeList = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
-    > h2 {
-        color: #fff;
-        margin-bottom: 40px;
-    }
-`;
-const Loading = styled.h3`
-    text-align: center;
-    margin-top: 240px;
-    color: #fff;
 `;
 
-const SlideWrap = styled.div`
-    width: 1300px;
-    height: 400px;
-    align-self: flex-end;
+const MovieTypesTitle = styled.h2`
+    color: #f4a7bc;
+    margin-bottom: 40px;
+    font-size: 26px;
+    transition: 0.2s ease-in-out;
+    border-bottom: 3px solid transparent;
+    border-radius: 1px;
+    cursor: pointer;
+    &:hover {
+        border-bottom: 3px solid #f08ca7;
+        color: #f08ca7;
+    }
 `;
+
+const SlideWrap = styled.div``;

@@ -4,6 +4,8 @@ import { useRecoilState } from "recoil";
 import Movie from "../components/Movie";
 import { listPageReLoading } from "../atom/Atoms";
 import styled from "styled-components";
+import Footer from "../components/Footer";
+import { Loading } from "../components/Loading.styled";
 
 export default function MovieList() {
     const [loading, setLoading] = useState(true);
@@ -50,6 +52,7 @@ export default function MovieList() {
                         })}
                     </Contents>
                 )}
+                <Footer />
             </InnerWarp>
         </Wrap>
     );
@@ -57,7 +60,7 @@ export default function MovieList() {
 
 const Wrap = styled.section`
     width: 100%;
-    padding: 120px 0;
+    padding: 150px 0 0 0;
     background-color: #000;
 `;
 
@@ -71,10 +74,4 @@ const Contents = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 140px;
-`;
-
-const Loading = styled.h3`
-    text-align: center;
-    margin-top: 240px;
-    color: #fff;
 `;

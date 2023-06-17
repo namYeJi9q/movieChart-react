@@ -13,13 +13,13 @@ export default function Movie({ id, year, title, summary, poster, genres }) {
                     </h3>
                     <h5>{year}</h5>
                     <p>
-                        {summary.length > 205
-                            ? `${summary.slice(0, 200)}...`
+                        {summary.length > 155
+                            ? `${summary.slice(0, 150)}...`
                             : summary}
                     </p>
                     <ul>
                         {genres.map((genre, index) => (
-                            <li key={index}>{genre}</li>
+                            <li key={index}>#{genre}</li>
                         ))}
                     </ul>
                 </MovieInfo>
@@ -41,18 +41,21 @@ const MovieImg = styled.img`
     width: 150px;
     height: 225px;
     position: relative;
+    top: 0;
+    left: 0;
     box-shadow: 1px 3px 10px 5px #000;
 `;
 const MovieWrap = styled.div`
     width: 400px;
-    height: 350px;
+    height: 400px;
     display: flex;
     padding: 20px;
     margin: 0 10px;
-    background-color: #fff;
+    background-color: rgba(57, 11, 23, 0.4);
     border-radius: 5px;
+    transition: 0.2s ease-in-out;
     &:hover {
-        box-shadow: 2px 5px 20px 6px #eee;
+        box-shadow: 2px 5px 20px 6px #aaa;
         ${MovieImg} {
             top: -30px;
         }
@@ -61,16 +64,19 @@ const MovieWrap = styled.div`
 
 const MovieInfo = styled.div`
     margin-left: 30px;
-    h2 {
+    h3 {
+        color: #f08ca7;
         margin-bottom: 10px;
     }
     h5 {
         margin-bottom: 15px;
+        color: #fff;
     }
     p {
         margin-bottom: 24px;
         line-height: 1.3;
         font-size: 15px;
+        color: #ddd;
     }
 
     ul {
@@ -80,5 +86,9 @@ const MovieInfo = styled.div`
     ul > li {
         font-size: 14px;
         margin-right: 5px;
+        margin-top: 5px;
+        background-color: #f4a7bc;
+        color: #000000;
+        padding: 3px;
     }
 `;

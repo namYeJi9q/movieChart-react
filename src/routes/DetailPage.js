@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Detail from "../components/Detail";
+import { Loading } from "../components/Loading.styled";
 
 export default function DetailPage() {
     const { id } = useParams();
@@ -43,10 +44,4 @@ const Wrap = styled.main`
     height: 100%;
     background-color: #000;
     border: 1px solid #000;
-`;
-
-const Loading = styled.h3`
-    text-align: center;
-    margin-top: 240px;
-    color: #fff;
 `;

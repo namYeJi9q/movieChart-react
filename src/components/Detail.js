@@ -22,16 +22,15 @@ export default function Detail({
                     </a>
                 </h1>
                 <MovieDetail>
-                    <li>
+                    <InfoLIst>
                         <span>⭐️ {rating}</span>•<span>{runtime}분</span>•
                         <span>{download_count}+</span>•<span>{year}</span>
-                    </li>
+                    </InfoLIst>
                     <Summary>{summary}</Summary>
                     <Genres>
-                        <span>장르</span>
                         <ul>
                             {genres.map((genre, index) => (
-                                <li key={index}>{genre}</li>
+                                <li key={index}>#{genre}</li>
                             ))}
                         </ul>
                     </Genres>
@@ -64,7 +63,7 @@ const Wrap = styled.section`
     z-index: 1;
     &:after {
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         content: "";
         background: ${(props) =>
             `url(${props.backImg})no-repeat center center`};
@@ -73,42 +72,58 @@ const Wrap = styled.section`
         top: 0;
         left: 0;
         z-index: -1;
-        opacity: 0.5;
+        opacity: 0.6;
     }
 `;
 
 const MovieInfo = styled.div`
-    width: 50%;
     position: absolute;
-    top: 150px;
-    left: 50px;
-    color: #fff;
+    top: 160px;
+    left: 80px;
     z-index: 1;
     h1 {
+        width: 50%;
         font-size: 40px;
+        color: #f9f5f6;
+        text-shadow: 2px 1px 3px #aaa;
+        margin-bottom: 5px;
     }
 `;
+
 const MovieDetail = styled.ul`
+    width: 40%;
     > li {
+        color: #f9f5f6;
         margin-bottom: 20px;
+        text-shadow: 2px 1px 3px #aaa;
+    }
+`;
+
+const InfoLIst = styled.li`
+    span {
+        margin-right: 6px;
+        margin-left: 6px;
+        :nth-child(1) {
+            margin-left: 0;
+        }
     }
 `;
 const Summary = styled.li`
-    height: 300px;
+    max-height: 300px;
     overflow: auto;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
-    line-height: 1.71;
+    line-height: 1.5;
 `;
 const Genres = styled.li`
-    display: flex;
-    flex-direction: row;
-
     ul {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         li {
-            margin-left: 5px;
+            margin-right: 10px;
+            font-size: 14px;
+            color: #f8e8ee;
         }
     }
 `;
@@ -120,6 +135,16 @@ const Poster = styled.div`
     position: absolute;
     top: 0;
     right: 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 10px -10px 50px 1px #111, -10px 10px 50px 10px #111;
+    }
 `;
 
 const PosterImg = styled.img`
@@ -128,26 +153,4 @@ const PosterImg = styled.img`
     object-fit: cover;
     object-position: top;
     position: relative;
-
-    &::before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 11;
-        border: 1px solid red;
-        /* background-image: linear-gradient(
-                to top,
-                rgb(0, 0, 0) 2%,
-                rgba(0, 0, 0, 0) 50%
-            ),
-            linear-gradient(
-                to right,
-                rgb(0, 0, 0) 20%,
-                rgba(0, 0, 0, 0) 50%,
-                rgba(0, 0, 0, 0.1) 100%
-            ); */
-    }
 `;

@@ -17,6 +17,7 @@ export default function DetailPage() {
                 setLoading(false);
             });
     }, []);
+    console.log(movie.background_image_original);
     return (
         <Wrap>
             {loading ? (
@@ -43,5 +44,4 @@ const Wrap = styled.main`
     width: 100%;
     height: 100%;
     background-color: #000;
-    border: 1px solid #000;
 `;

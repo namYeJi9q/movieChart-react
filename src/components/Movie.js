@@ -44,6 +44,7 @@ const MovieImg = styled.img`
     top: 0;
     left: 0;
     box-shadow: 1px 3px 10px 5px #000;
+    transition: all ease-in-out 0.2s;
 `;
 const MovieWrap = styled.div`
     width: 400px;
@@ -53,9 +54,11 @@ const MovieWrap = styled.div`
     margin: 0 10px;
     background-color: rgba(57, 11, 23, 0.4);
     border-radius: 5px;
-    transition: 0.2s ease-in-out;
+    transition: all ease-in-out 0.2s;
+
     &:hover {
         box-shadow: 2px 5px 20px 6px #aaa;
+        transform: scale(1.05);
         ${MovieImg} {
             top: -30px;
         }

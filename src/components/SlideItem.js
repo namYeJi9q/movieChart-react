@@ -32,8 +32,8 @@ SlideItem.propTypes = {
 const MovieImg = styled.div`
     width: 164px;
     height: 245px;
-
     border: 2.5px solid rgba(244, 167, 188, 0.4);
+    transition: all ease-in-out 0.2s;
 `;
 
 const Poster = styled.img`
@@ -43,7 +43,6 @@ const Poster = styled.img`
     top: 0;
     left: 0;
     position: relative;
-    transition: 0.2s ease-in-out;
 
     &::before {
         content: "";
@@ -62,10 +61,11 @@ const MovieWrap = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    transition: 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
         ${MovieImg} {
+            transform: scale(1.08);
         }
     }
 `;

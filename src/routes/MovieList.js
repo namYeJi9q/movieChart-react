@@ -5,7 +5,7 @@ import Movie from "../components/Movie";
 import { listPageReLoading } from "../atom/Atoms";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import { Loading } from "../components/Loading.styled";
+import ScarletonInMovieList from "../components/scarletonUI/ScarletonInMovieList";
 
 export default function MovieList() {
     const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ export default function MovieList() {
         <Wrap>
             <InnerWarp>
                 {loading ? (
-                    <Loading>Loading...</Loading>
+                    <ScarletonInMovieList />
                 ) : (
                     <Contents>
                         {movies.map((movie) => {

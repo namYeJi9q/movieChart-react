@@ -62,7 +62,6 @@ const MovieWrap = styled.div`
     flex-direction: column;
     margin: 0 auto;
     transition: all 0.2s ease-in-out;
-
     &:hover {
         ${MovieImg} {
             transform: scale(1.08);

@@ -7,16 +7,18 @@ export default function ScarletonInMovieList() {
                 {Array(20)
                     .fill()
                     .map((_, index) => (
-                        <MovieBox key={index}>
-                            <div></div>
-                            <MovieBoxRightCont>
-                                <h3></h3>
-                                <h5></h5>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                            </MovieBoxRightCont>
-                        </MovieBox>
+                        <>
+                            <MovieBox key={index}>
+                                <LoadingImg></LoadingImg>
+                                <MovieBoxRightCont>
+                                    <h3></h3>
+                                    <h5></h5>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </MovieBoxRightCont>
+                            </MovieBox>
+                        </>
                     ))}
             </LoadingWrap>
         </>
@@ -30,6 +32,15 @@ const LoadingWrap = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 140px;
+`;
+
+const LoadingImg = styled.div`
+    width: 150px;
+    height: 225px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: gray;
 `;
 
 const MovieBox = styled.div`

@@ -56,16 +56,25 @@ const MovieBox = styled.div`
 const MovieBoxRightCont = styled.div`
     margin-left: 30px;
     h3 {
-        color: #f08ca7;
+        background-color: gray;
         margin-bottom: 10px;
+        width: 100px;
+        height: 24px;
+        border-radius: 5px;
     }
     h5 {
         margin-bottom: 15px;
-        color: #fff;
+        background-color: gray;
+        width: 50px;
+        height: 17px;
+        border-radius: 5px;
     }
     p {
-        line-height: 1.3;
         font-size: 15px;
-        color: #ddd;
+        background-color: gray;
+        width: 180px;
+        height: 20px;
+        border-radius: 5px;
+        margin-bottom: 4px;
     }
 `;

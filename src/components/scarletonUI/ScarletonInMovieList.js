@@ -11,11 +11,21 @@ export default function ScarletonInMovieList() {
                             <MovieBox key={index}>
                                 <LoadingImg></LoadingImg>
                                 <MovieBoxRightCont>
-                                    <h3></h3>
-                                    <h5></h5>
-                                    <p></p>
-                                    <p></p>
-                                    <p></p>
+                                    <h3>
+                                        <SkeletonItem />
+                                    </h3>
+                                    <h5>
+                                        <SkeletonItem />
+                                    </h5>
+                                    <p>
+                                        <SkeletonItem />
+                                    </p>
+                                    <p>
+                                        <SkeletonItem />
+                                    </p>
+                                    <p>
+                                        <SkeletonItem />
+                                    </p>
                                 </MovieBoxRightCont>
                             </MovieBox>
                         </>
@@ -24,6 +34,39 @@ export default function ScarletonInMovieList() {
         </>
     );
 }
+
+const SkeletonItem = styled.div`
+    background-color: #f2f2f2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @keyframes skeleton-gradient {
+        0% {
+            background-color: rgba(165, 165, 165, 0.1);
+        }
+        30% {
+            background-color: rgba(165, 165, 165, 0.4);
+        }
+        75% {
+            background-color: rgba(165, 165, 165, 0.1);
+        }
+        100% {
+            background-color: rgba(165, 165, 165, 0.4);
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        animation: skeleton-gradient 1s infinite ease-in;
+    }
+`;
 
 const LoadingWrap = styled.div`
     width: 100%;
@@ -34,29 +77,29 @@ const LoadingWrap = styled.div`
     row-gap: 140px;
 `;
 
-const LoadingImg = styled.div`
+const LoadingImg = styled(SkeletonItem)`
     width: 150px;
     height: 225px;
     position: relative;
     top: 0;
     left: 0;
-    background-color: gray;
+    /* background-color: gray; */
 `;
 
-const MovieBox = styled.div`
+const MovieBox = styled(SkeletonItem)`
     width: 400px;
     height: 400px;
     display: flex;
     padding: 20px;
     margin: 0 10px;
-    background-color: lightgrey;
+    background-color: gray;
     border-radius: 5px;
 `;
 
 const MovieBoxRightCont = styled.div`
     margin-left: 30px;
     h3 {
-        background-color: gray;
+        /* background-color: gray; */
         margin-bottom: 10px;
         width: 100px;
         height: 24px;
@@ -64,14 +107,14 @@ const MovieBoxRightCont = styled.div`
     }
     h5 {
         margin-bottom: 15px;
-        background-color: gray;
+        /* background-color: gray; */
         width: 50px;
         height: 17px;
         border-radius: 5px;
     }
     p {
         font-size: 15px;
-        background-color: gray;
+        /* background-color: gray; */
         width: 180px;
         height: 20px;
         border-radius: 5px;

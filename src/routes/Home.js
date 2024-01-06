@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { Loading } from "../components/Loading.styled";
+import ScarletonInHome from "../components/scarletonUI/ScarletonInHome";
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
@@ -52,7 +53,7 @@ export default function Home() {
                             </Link>
                         </MovieTypesTitle>
                         {loading ? (
-                            <Loading>Loading...</Loading>
+                            <ScarletonInHome />
                         ) : (
                             <SlideWrap>
                                 {movieTypes && movieTypes.length === 0 ? (

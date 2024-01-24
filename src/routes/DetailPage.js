@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Detail from "../components/Detail";
 import { Loading } from "../components/Loading.styled";
+import SkeletonInDetail from "../components/skeletonUI/SkeletonInDetail";
 
 export default function DetailPage() {
     const { id } = useParams();
@@ -21,7 +22,7 @@ export default function DetailPage() {
     return (
         <Wrap>
             {loading ? (
-                <Loading>Loading...</Loading>
+                <SkeletonInDetail />
             ) : (
                 <Detail
                     background_image_original={movie.background_image_original}

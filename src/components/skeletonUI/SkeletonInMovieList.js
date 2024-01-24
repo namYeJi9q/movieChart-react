@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { SkeletonItem } from "./ScarletonUI.styled";
+import { SkeletonItem } from "./SkeletonUI.styled";
 
-export default function ScarletonInMovieList() {
+export default function SkeletonInMovieList() {
     return (
         <>
             <LoadingWrap>

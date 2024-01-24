@@ -5,7 +5,7 @@ import Movie from "../components/Movie";
 import { listPageReLoading } from "../atom/Atoms";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import ScarletonInMovieList from "../components/scarletonUI/ScarletonInMovieList";
+import SkeletonInMovieList from "../components/skeletonUI/SkeletonInMovieList";
 
 export default function MovieList() {
     const [loading, setLoading] = useState(true);
@@ -28,13 +28,11 @@ export default function MovieList() {
         getMovies();
     }, [reloading]);
 
-    console.log(movies);
-
     return (
         <Wrap>
             <InnerWarp>
                 {loading ? (
-                    <ScarletonInMovieList />
+                    <SkeletonInMovieList />
                 ) : (
                     <Contents>
                         {movies.map((movie) => {

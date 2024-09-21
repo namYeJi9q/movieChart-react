@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/movieChart-react/static/css/main.f6e1b228.css",
-    "main.js": "/movieChart-react/static/js/main.a96b4764.js",
+    "main.js": "/movieChart-react/static/js/main.263f6961.js",
     "static/media/slick.svg": "/movieChart-react/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/movieChart-react/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/movieChart-react/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/movieChart-react/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/movieChart-react/index.html",
     "main.f6e1b228.css.map": "/movieChart-react/static/css/main.f6e1b228.css.map",
-    "main.a96b4764.js.map": "/movieChart-react/static/js/main.a96b4764.js.map"
+    "main.263f6961.js.map": "/movieChart-react/static/js/main.263f6961.js.map"
   },
   "entrypoints": [
     "static/css/main.f6e1b228.css",
-    "static/js/main.a96b4764.js"
+    "static/js/main.263f6961.js"
   ]
 }

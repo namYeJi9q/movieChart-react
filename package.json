@@ -13,7 +13,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "components": "^0.1.0",
-    "gh-pages": "^5.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -52,5 +51,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://namYeJi9q.github.io/movieChart-react"
+  "homepage": "https://namYeJi9q.github.io/movieChart-react",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }
